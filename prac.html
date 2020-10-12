@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .accordion {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 1.1em;
+      padding: 10px;
+      text-align: left;
+      transition: .3s;
+      color: #777;
+    }
+
+    .penal {
+      padding: 0 10px;
+      max-height: 0;
+      overflow: hidden;
+      transition:.3s;
+    }
+
+    .accordion:hover {
+      background-color: rgb(170, 170, 170);
+    }
+
+    .accordion:after {
+      content: '\002B';
+      color: #777;
+      font-weight: bold;
+      float: right;
+      margin-right: 20px;
+    }
+
+    .active:after {
+      content: '\2212';
+    }
+
+    .active {
+      background-color: rgb(150, 200, 100);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Accordion with Stmbols.</h1>
+  <p>In this example we have added a "plus" sign to each button.
+    When the user clicks on the button, the "plus" sign is replaced with a "minus" sign.
+  </p>
+
+  <button class="accordion">Section1</button>
+  <div class="penal">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      ehfidhsih idhi hiehfi jiasjodj icijsifhei hiahdihcih ishdih fi
+      chidhfiehiqjiejfidj akdjskjcidshif heoqhidc isdh ihdif hdi ihcihsid
+      chidhifhi hiehiqhid hi hidhichid
+    </p>
+  </div>
+
+  <button class="accordion">Section2</button>
+  <div class="penal">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      ehfidhsih idhi hiehfi jiasjodj icijsifhei hiahdihcih ishdih fi
+      chidhfiehiqjiejfidj akdjskjcidshif heoqhidc isdh ihdif hdi ihcihsid
+      chidhifhi hiehiqhid hi hidhichid
+    </p>
+  </div>
+
+  <button class="accordion">Section3</button>
+  <div class="penal">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      ehfidhsih idhi hiehfi jiasjodj icijsifhei hiahdihcih ishdih fi
+      chidhfiehiqjiejfidj akdjskjcidshif heoqhidc isdh ihdif hdi ihcihsid
+      chidhifhi hiehiqhid hi hidhichid
+    </p>
+  </div>
+  <script>
+    var accordion = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < accordion.length; i++) {
+      accordion[i].addEventListener("click",function(){
+        this.classList.toggle("active");
+        var penal = this.nextElementSibling;
+        if(penal.style.maxHeight){
+          penal.style.maxHeight = null;
+        }else{
+          penal.style.maxHeight=penal.scrollHeight +"px";
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
